@@ -6,5 +6,8 @@ class Group:
     def __eq__(self, other):
         return self.name == other.name
 
+    def __repr__(self):
+        return "%s" % self.name
+
     def name(self):
         return self.name

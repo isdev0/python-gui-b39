@@ -44,8 +44,8 @@ class GroupHelper:
             if children.text() == name:
                 children.click()
                 self.group_editor.window(auto_id="uxDeleteAddressButton").click()
-                self.group_editor.wait("visible")
                 group_deleting = self.app.application.window(title="Delete group")
+                group_deleting.wait("visible")
                 group_deleting.window(auto_id="uxDeleteAllRadioButton").click()
                 group_deleting.window(auto_id="uxOKAddressButton").click()
 
