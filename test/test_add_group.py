@@ -1,2 +1,12 @@
+from random import randrange
+from model.group import Group
+
+
 def test_add_group(app):
-    pass
+    group_name = "TestGroupName" + str(randrange(99))
+
+    old_groups = app.group.get_all()
+    app.group.create(Group(group_name))
+    new_groups = app.group.get_all()
+    old_groups.append(Group(group_name))
+    assert sorted(old_groups, key=Group.name) == sorted(new_groups, key=Group.name)
